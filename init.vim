@@ -18,35 +18,25 @@ Plug 'nvim-telescope/telescope.nvim'
 " theme
 Plug 'arcticicestudio/nord-vim'
 
-" coc
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" lsp config
+Plug 'neovim/nvim-lspconfig'
+" Plug 'hrsh7th/cmp-nvim-lsp'
+" Plug 'hrsh7th/cmp-buffer'
+" Plug 'hrsh7th/nvim-cmp'
+
+
+" lsp saga
+" Plug 'glepnir/lspsaga.nvim'
 
 
 call plug#end()
 
-
-" coc settings
-set hidden
-set updatetime=300
-set shortmess+=c
-
-if has("nvim-0.5.0") || has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
-
-
-
-
 colo nord
-" set fileencodings=utf-8
-set encoding=utf-8
-" scriptencoding utf-8
-" set title
+
 set cmdheight=2
 set relativenumber
+scriptencoding utf-8
 set nocompatible            " disable compatibiliy to old-time vi
 set showmatch               " show matching 
 set ignorecase              " case insensitive 
@@ -59,19 +49,28 @@ set expandtab               " converts tabs to white space
 set shiftwidth=4            " width for autoindents
 set autoindent              " indent a new line the same amount as the line just typed
 set number                  " add line numbers
-" set wildmode=longest,list   " get bash-like tab completions
-" filetype plugin indent on   " allow auto-indenting depending on file type
+set wildmode=longest,list   " get bash-like tab completions
+filetype plugin indent on   " allow auto-indenting depending on file type
 syntax on                   " syntax highlighting
 set mouse=a                 " enable mouse click
 set clipboard=unnamedplus   " using system clipboard "
-" filetype plugin on
+filetype plugin on
 set cursorline              " highlight current cursorline "
 set ttyfast                 " Speed up scrolling in Vim" 
-" set spell                   " enable spell check (may need to download language package)"
 set backupdir=~/.cache/nvim  " Directory to store backup files.
-" set inccommand=split
 
-" Finding files - Search down into subfolders
-set path+=**
 
-runtime ./mappings.vim
+
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+
+lua << EOF
+require'lspconfig'.intelephense.setup{}
+require'lspconfig'.pyright.setup{}
+EOF
+
+
