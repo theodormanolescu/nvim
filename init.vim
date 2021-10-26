@@ -20,6 +20,11 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 
+" treesitter highlighting
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+
+
+
 "nerdtree
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -33,7 +38,7 @@ Plug 'hrsh7th/nvim-cmp'
 " statusline
 Plug 'nvim-lualine/lualine.nvim'
 " If you want to have icons in your statusline choose one of these
-" Plug 'kyazdani42/nvim-web-devicons'
+Plug 'kyazdani42/nvim-web-devicons'
 
 
 " lsp saga
@@ -79,6 +84,26 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 
 lua << EOF
+
+
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+    disable = {},
+  },
+  indent = {
+    enable = false,
+    disable = {},
+  },
+  ensure_installed = {
+    "python",
+    "php",
+    "json",
+    "yaml",
+    "html"
+    }
+}
+
 
 require'lualine'.setup{
 options = { theme  = 'nord' }
