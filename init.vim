@@ -16,8 +16,8 @@ call plug#begin(config_path . '/plugged')
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 " theme
-Plug 'arcticicestudio/nord-vim'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+" Plug 'arcticicestudio/nord-vim'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
 
 " treesitter highlighting
@@ -47,7 +47,7 @@ Plug 'glepnir/lspsaga.nvim'
 
 call plug#end()
 
-colo nord
+colo tokyonight
 set cmdheight=2
 set relativenumber
 scriptencoding utf-8
@@ -106,9 +106,10 @@ require'nvim-treesitter.configs'.setup {
 
 
 require'lualine'.setup{
-options = { theme  = 'nord' }
+options = { theme  = 'tokyonight' }
 }
 
+vim.g.tokyonight_style = "night"
 
 
 
