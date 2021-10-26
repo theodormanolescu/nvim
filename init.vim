@@ -17,13 +17,23 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 " theme
 Plug 'arcticicestudio/nord-vim'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 
+"nerdtree
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ryanoasis/vim-devicons'
 " lsp config
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/nvim-cmp'
+
+" statusline
+Plug 'nvim-lualine/lualine.nvim'
+" If you want to have icons in your statusline choose one of these
+" Plug 'kyazdani42/nvim-web-devicons'
 
 
 " lsp saga
@@ -33,7 +43,6 @@ Plug 'glepnir/lspsaga.nvim'
 call plug#end()
 
 colo nord
-
 set cmdheight=2
 set relativenumber
 scriptencoding utf-8
@@ -52,6 +61,7 @@ set number                  " add line numbers
 set wildmode=longest,list   " get bash-like tab completions
 filetype plugin indent on   " allow auto-indenting depending on file type
 syntax on                   " syntax highlighting
+set termguicolors
 set mouse=a                 " enable mouse click
 set clipboard=unnamedplus   " using system clipboard "
 filetype plugin on
@@ -69,6 +79,13 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 
 lua << EOF
+
+require'lualine'.setup{
+options = { theme  = 'nord' }
+}
+
+
+
 
 local nvim_lsp = require('lspconfig')
 local on_attach = function(client, bufnr)
