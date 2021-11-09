@@ -18,10 +18,8 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
-
 " treesitter highlighting
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
-
 
 
 "nerdtree
@@ -44,18 +42,13 @@ Plug 'nvim-lualine/lualine.nvim'
 " If you want to have icons in your statusline choose one of these
 Plug 'kyazdani42/nvim-web-devicons'
 
-
 " lsp saga
 Plug 'glepnir/lspsaga.nvim'
-
-
-
 call plug#end()
 filetype plugin indent on
 
 
 lua << EOF
-
 require('tm')
 require'nvim-treesitter.configs'.setup {
   highlight = {
@@ -63,7 +56,7 @@ require'nvim-treesitter.configs'.setup {
     disable = {},
   },
   indent = {
-    enable = false,
+    enable = true,
     disable = {},
   },
   ensure_installed = {
@@ -75,16 +68,9 @@ require'nvim-treesitter.configs'.setup {
     }
 }
 
-
 require'lualine'.setup { options = { theme  = 'tokyonight' } }
-
-
-
 
 local saga = require 'lspsaga'
 saga.init_lsp_saga()
 
-
 EOF
-
-

@@ -7,6 +7,7 @@ opt.encoding="utf-8"
 opt.showmatch = true            -- show matching 
 opt.ignorecase  = true          -- case insensitive 
 opt.hlsearch = true             -- highlight search 
+opt.colorcolumn="90"
 opt.incsearch = true            -- incremental search
 opt.tabstop=4                   -- number of columns occupied by a tab 
 opt.softtabstop=4               -- see multiple spaces as tabstops so <BS> does the right thing
