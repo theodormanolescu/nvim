@@ -45,6 +45,11 @@ Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'https://github.com/onsails/lspkind-nvim.git'
 
+" For luasnip users.
+Plug 'L3MON4D3/LuaSnip'
+Plug 'saadparwaiz1/cmp_luasnip'
+
+
 " statusline
 Plug 'nvim-lualine/lualine.nvim'
 " If you want to have icons in your statusline choose one of these
