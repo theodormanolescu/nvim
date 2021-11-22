@@ -59,7 +59,7 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'tami5/lspsaga.nvim'
 call plug#end()
 filetype plugin indent on
-
+set backupdir=~/.local/share/nvim/backup//
 
 lua << EOF
 require('tm')
