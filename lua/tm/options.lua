@@ -1,5 +1,6 @@
 vim.cmd[[colorscheme tokyonight]]
 local opt = vim.opt -- to set options
+
 opt.mouse = "a"
 opt.cmdheight=2
 opt.relativenumber = true
@@ -21,4 +22,3 @@ opt.termguicolors = true
 opt.clipboard="unnamedplus"     -- using system clipboard "
 opt.cursorline = true           -- highlight current cursorline "
 opt.ttyfast = true              -- Speed up scrolling in Vim" 
-opt.backupdir="~/.cache/nvim"   -- Directory to store backup files.

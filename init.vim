@@ -1,89 +1,83 @@
-" Install vim-plug if not found
-let config_path = '~/.config/nvim'
-if empty(glob(config_path . '/autoload/plug.vim'))
-  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-endif
 
-" Run PlugInstall if there are missing plugins
-autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-  \| PlugInstall --sync | source $MYVIMRC
-\| endif
-
-
-call plug#begin(config_path . '/plugged')
-
-" fuzzy finder
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-
-
-" git signs, needs plenary
-Plug 'lewis6991/gitsigns.nvim'
-
-" treesitter highlighting
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
-
-
-
-"nerdtree
-Plug 'preservim/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'ryanoasis/vim-devicons'
-
-" theme
-Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-
-" lsp config
-Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-nvim-lua'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'https://github.com/onsails/lspkind-nvim.git'
-
-" For luasnip users.
-Plug 'L3MON4D3/LuaSnip'
-Plug 'saadparwaiz1/cmp_luasnip'
-
-
-" statusline
-Plug 'nvim-lualine/lualine.nvim'
-" If you want to have icons in your statusline choose one of these
-Plug 'kyazdani42/nvim-web-devicons'
-
-" lsp saga
-Plug 'tami5/lspsaga.nvim'
-call plug#end()
 filetype plugin indent on
-
-
+set backupdir=~/.local/share/nvim/backup//
 lua << EOF
+local fn = vim.fn
+local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+
+if fn.empty(fn.glob(install_path)) > 0 then
+  fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+end
+
+vim.cmd [[
+  augroup Packer
+    autocmd!
+    autocmd BufWritePost init.lua PackerCompile
+  augroup end
+]]
+require('plugins')
 require('tm')
 require'nvim-treesitter.configs'.setup {
-  highlight = {
+    highlight = {
+        enable = true,
+        disable = {},
+  },
+  incremental_selection = {
     enable = true,
-    disable = {},
+    keymaps = {
+        init_selection = 'gnn',
+        node_incremental = 'grn',
+        scope_incremental = 'grc',
+        node_decremental = 'grm',
+    },
   },
   indent = {
     enable = true,
     disable = {},
   },
   ensure_installed = {
-    "python",
-    "php",
-    "json",
-    "yaml",
-    "html"
-    }
+      "python",
+      "php",
+      "json",
+      "yaml",
+      "html"
+  },
+  textobjects = {
+    select = { 
+        enable = true,
+        lookahead = true,
+        keymaps = {
+            ['af'] = '@function.outer',
+            ['if'] = '@function.inner',
+            ['ac'] = '@class.outer',
+            ['ic'] = '@class.inner',
+        },                                                                                
+    },                                                                                
+    move = {
+        enable = true,
+        set_jumps = true,
+        goto_next_start = {
+            [']m'] = '@function.outer',
+            [']]'] = '@class.outer',
+        },
+        goto_next_end = {
+            [']M'] = '@function.outer',
+            [']['] = '@class.outer',
+        },
+        goto_previous_start = {
+            ['[m'] = '@function.outer',
+            ['[['] = '@class.outer',
+        },
+        goto_previous_end = {
+            ['[M'] = '@function.outer',
+            ['[]'] = '@class.outer',
+        },
+    },
+  },
 }
 
 require'lualine'.setup { options = { theme  = 'tokyonight' } }
 
 local saga = require 'lspsaga'
 saga.init_lsp_saga()
-
 EOF

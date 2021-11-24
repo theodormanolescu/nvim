@@ -25,18 +25,23 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
-local lspkind = require "lspkind"
+local lspkind = require 'lspkind'
 lspkind.init()
 
-local luasnip = require('luasnip')
-local cmp = require('cmp')
+local luasnip = require 'luasnip'
+local cmp = require 'cmp'
+local has_words_before = function()
+   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+ end
+require("luasnip/loaders/from_vscode").lazy_load()
 cmp.setup({
     formatting = {
         format = lspkind.cmp_format {
             with_text = true,
             menu = {
                 buffer = "[buf]",
-                nvim_lsp = "[LSP]",
+                nvim_lsp = "[lsp]",
                 nvim_lua = "[api]",
                 path = "[path]",
                 luasnip = "[snip]",
@@ -50,61 +55,47 @@ cmp.setup({
     },
     snippet = {
         expand = function(args)
-             require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+             luasnip.lsp_expand(args.body)
         end,
     },
     mapping = {
-        ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping.complete(),
-        ['<C-e>'] = cmp.mapping.close(),
-        ['<C-y>'] = cmp.config.disable, -- If you want to remove the default `<C-y>` mapping, You can specify `cmp.config.disable` value.
-        ['<CR>'] = cmp.mapping.confirm({ select = true }),
-        ['<Tab>'] = function(fallback)
-            if cmp.visible() then
-                cmp.select_next_item()
-            elseif luasnip.expand_or_jumpable() then
-                vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-expand-or-jump', true, true, true), '')
-            else
-                fallback()
-            end
-        end,
-        ['<S-Tab>'] = function(fallback)
-            if cmp.visible() then
-                cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
-                vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-jump-prev', true, true, true), '')
-            else
-                fallback()
-            end
-        end,
+      ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+      ['<C-f>'] = cmp.mapping.scroll_docs(4),
+      ['<C-Space>'] = cmp.mapping.complete(),
+      ['<C-e>'] = cmp.mapping.close(),
+      ['<C-y>'] = cmp.config.disable,
+      ['<CR>'] = cmp.mapping.confirm({ select = true }),
+      ['<Tab>'] = cmp.mapping(function(fallback)
+        if cmp.visible() then
+            cmp.select_next_item()
+        elseif luasnip.expand_or_jumpable() then
+            luasnip.expand_or_jump()
+        elseif has_words_before() then
+            fallback()
+        else
+            fallback()
+        end
+      end, { "i", "s" }),
+      ['<S-Tab>'] = cmp.mapping(function(fallback)
+        if cmp.visible() then
+            cmp.select_prev_item()
+        elseif luasnip.jumpable(-1) then
+            luasnip.jump(-1)
+        else
+            fallback()
+        end
+      end, { "i", "s" }),
     },
-    sources = cmp.config.sources(
-        {{ name = 'luasnip' }}, 
-        {{ name = 'nvim_lua' }}, 
-        {{ name = 'nvim_lsp' }}, 
-        {{ name = 'buffer', keyword_length = 5 }}
-    )
-})
-
-cmp.setup.cmdline('/', {
     sources = {
-        { name = 'buffer' }
+        { name = 'nvim_lsp' },
+        { name = 'path' },
+        { name = 'luasnip' },
+        { name = 'nvim_lua' },
+        { name = 'buffer', keyword_length = 3 }
     }
 })
-
-cmp.setup.cmdline(':',
-    {
-        sources = cmp.config.sources(
-            {{ name = 'path' }},
-            {{ name = 'cmdline' }}
-        )
-    }
-)
-
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 nvim_lsp.pyright.setup {
     capabilities = capabilities,
