@@ -1,15 +1,12 @@
-" Install vim-plug if not found
 let config_path = '~/.config/nvim'
 if empty(glob(config_path . '/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
-" Run PlugInstall if there are missing plugins
 autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \| PlugInstall --sync | source $MYVIMRC
 \| endif
-
 
 call plug#begin(config_path . '/plugged')
 
@@ -18,14 +15,12 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
-
 " git signs, needs plenary
 Plug 'lewis6991/gitsigns.nvim'
 
 " treesitter highlighting
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
-
-
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 
 "nerdtree
 Plug 'preservim/nerdtree'
@@ -48,7 +43,7 @@ Plug 'https://github.com/onsails/lspkind-nvim.git'
 " For luasnip users.
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
-
+Plug 'rafamadriz/friendly-snippets'
 
 " statusline
 Plug 'nvim-lualine/lualine.nvim'
@@ -58,32 +53,13 @@ Plug 'kyazdani42/nvim-web-devicons'
 " lsp saga
 Plug 'tami5/lspsaga.nvim'
 call plug#end()
-filetype plugin indent on
 set backupdir=~/.local/share/nvim/backup//
 
 lua << EOF
 require('tm')
-require'nvim-treesitter.configs'.setup {
-  highlight = {
-    enable = true,
-    disable = {},
-  },
-  indent = {
-    enable = true,
-    disable = {},
-  },
-  ensure_installed = {
-    "python",
-    "php",
-    "json",
-    "yaml",
-    "html"
-    }
-}
 
-require'lualine'.setup { options = { theme  = 'tokyonight' } }
-
-local saga = require 'lspsaga'
+require('lualine').setup { options = { theme  = 'tokyonight' } }
+local saga = require('lspsaga')
 saga.init_lsp_saga()
 
 EOF
