@@ -1,6 +1,8 @@
 vim.cmd[[colorscheme tokyonight]]
 local opt = vim.opt                 -- to set options
 local cmd = vim.api.nvim_command
+HOME_PATH = '/home/' .. vim.fn.expand('$USER')
+
 opt.mouse = "a"
 opt.cmdheight=2
 opt.relativenumber = true
@@ -25,8 +27,15 @@ opt.syntax = 'on'                   -- syntax highlighting
 opt.termguicolors = true
 opt.clipboard = 'unnamedplus'       -- using system clipboard "
 opt.cursorline = true               -- highlight current cursorline "
+opt.backup = false               -- Don't use swap or backup
 opt.ttyfast = true                  -- Speed up scrolling in Vim"
 opt.hidden = true                   -- Do not save when switching buffers
 opt.scrolloff = 8                   -- Number of screen lines to keep above and below the cursor
 opt.colorcolumn = '99999'           -- To fix a neovim bug affecting indent-blankline
+
+opt.undodir = HOME_PATH .. "/.config/nvim/undo"
+opt.undofile = true
+opt.undolevels = 100
+opt.undoreload = 100
+
 cmd('filetype plugin indent on')
