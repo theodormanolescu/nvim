@@ -52,12 +52,15 @@ Plug 'kyazdani42/nvim-web-devicons'
 
 " lsp saga
 Plug 'tami5/lspsaga.nvim'
+Plug 'numToStr/Comment.nvim'
 call plug#end()
 set backupdir=~/.local/share/nvim/backup//
 
+nnoremap <expr> <F8> g:NERDTree.IsOpen() ? ':NERDTreeClose<CR>' : @% == '' ? ':NERDTree<CR>' : ':NERDTreeFind<CR>'
 lua << EOF
 require('tm')
 
+require('Comment').setup()
 require('lualine').setup { options = { theme  = 'tokyonight' } }
 local saga = require('lspsaga')
 saga.init_lsp_saga()

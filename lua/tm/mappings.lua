@@ -1,10 +1,10 @@
 vim.g.mapleader = ' '
-local function map(mode, lhs, rhs, opts)
+local function map(mode, key, result, opts)
   local options = { noremap = true }
   if opts then
     options = vim.tbl_extend("force", options, opts)
   end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+  vim.api.nvim_set_keymap(mode, key, result, options)
 end
 map("n", "<Leader>ff", ":Telescope find_files<CR>")
 map("n", "<Leader>fg", ":Telescope live_grep<CR>")

@@ -9,7 +9,7 @@ opt.relativenumber = true
 opt.encoding="utf-8"
 opt.showmatch = true                -- show matching 
 opt.ignorecase  = true              -- case insensitive 
-opt.hlsearch = true                 -- highlight search 
+opt.hlsearch = false                 -- highlight search 
 opt.colorcolumn = "90"
 opt.incsearch = true                -- incremental search
 
