@@ -33,7 +33,7 @@ opt.hidden = true                   -- Do not save when switching buffers
 opt.scrolloff = 8                   -- Number of screen lines to keep above and below the cursor
 opt.colorcolumn = '99999'           -- To fix a neovim bug affecting indent-blankline
 
-opt.undodir = HOME_PATH .. "/.config/nvim/undo"
+opt.undodir = HOME_PATH .. "/.config/nvim/.undo"
 opt.undofile = true
 opt.undolevels = 100
 opt.undoreload = 100
