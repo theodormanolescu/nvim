@@ -4,7 +4,6 @@ local cmd = vim.api.nvim_command
 HOME_PATH = '/home/' .. vim.fn.expand('$USER')
 
 opt.mouse = "a"
-opt.cmdheight=2
 opt.relativenumber = true
 opt.encoding="utf-8"
 opt.showmatch = true                -- show matching 

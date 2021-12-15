@@ -14,7 +14,7 @@ map("n", "<Leader>fh", ":Telescope help_tags<CR>")
 map("n", "<Leader>gr", ":Lspsaga lsp_finder<CR>")
 
 -- quit all
-map("n", "<Leader>q", ":q<CR>")
+map("n", "<Leader>qq", ":qa<CR>")
 map("n", "<Leader>w", ":wq<CR>")
 
 -- Move to the next/previous buffer
