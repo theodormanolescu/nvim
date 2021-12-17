@@ -16,15 +16,7 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
     disable = {},
   },
-  ensure_installed = {
-    "python",
-    "php",
-    "javascript",
-    "lua",
-    "json",
-    "yaml",
-    "html"
-    },
+    ensure_installed = "maintained",
     textobjects = {
         select = { 
             enable = true,

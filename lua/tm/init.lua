@@ -1,3 +1,4 @@
+require("tm.plugins")
 require('tm.tree_sitter')
 require('tm.lsp')
 require('tm.mappings')

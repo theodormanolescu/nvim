@@ -22,7 +22,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-  buf_set_keymap('n', '<space>l', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+  buf_set_keymap('n', 'lf', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
 local lspkind = require "lspkind"
@@ -96,7 +96,6 @@ cmp.setup({
 })
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-capabilities.textDocument.completion.completionItem.snippetSupport = true
 nvim_lsp.pyright.setup {
     capabilities = capabilities,
     cmd = { 'pyright-langserver', '--stdio'},

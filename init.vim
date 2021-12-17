@@ -46,7 +46,7 @@ Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'rafamadriz/friendly-snippets'
 
-
+Plug 'rcarriga/nvim-notify'
 Plug 'folke/which-key.nvim'
 
 " statusline
@@ -60,20 +60,8 @@ Plug 'numToStr/Comment.nvim'
 call plug#end()
 set backupdir=~/.local/share/nvim/backup//
 
-nnoremap <expr> <F8> g:NERDTree.IsOpen() ? ':NERDTreeClose<CR>' : @% == '' ? ':NERDTree<CR>' : ':NERDTreeFind<CR>'
 lua << EOF
 require('tm')
-
-require('Comment').setup()
-require('lualine').setup { options = { theme  = 'tokyonight' } }
-require("which-key").setup {}
-require("null-ls").setup({
-    sources = {
-        require("null-ls").builtins.formatting.black,
-    },
-})
-
-local saga = require('lspsaga')
-saga.init_lsp_saga()
-
 EOF
+
+nnoremap <expr> <F8> g:NERDTree.IsOpen() ? ':NERDTreeClose<CR>' : @% == '' ? ':NERDTree<CR>' : ':NERDTreeFind<CR>'
