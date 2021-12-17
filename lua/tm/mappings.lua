@@ -1,27 +1,28 @@
 vim.g.mapleader = ' '
-local function map(mode, key, result, opts)
-  local options = { noremap = true }
-  if opts then
-    options = vim.tbl_extend("force", options, opts)
-  end
-  vim.api.nvim_set_keymap(mode, key, result, options)
-end
+local options = { noremap = true, silent = true }
+local map = vim.api.nvim_set_keymap
 -- Telescope
-map("n", "<Leader>ff", ":Telescope find_files<CR>")
-map("n", "<Leader>fg", ":Telescope live_grep<CR>")
-map("n", "<Leader>ft", ":Telescope treesitter<CR>")
-map("n", "<Leader>fb", ":Telescope buffers<CR>")
-map("n", "<Leader>fh", ":Telescope help_tags<CR>")
-map("n", "<Leader>gr", ":Lspsaga lsp_finder<CR>")
+map('n', '<Leader>ff', ':Telescope find_files<CR>', options)
+map('n', '<Leader>fg', ':Telescope live_grep<CR>', options)
+map('n', '<Leader>ft', ':Telescope treesitter<CR>', options)
+map('n', '<Leader>fb', ':Telescope buffers<CR>', options)
+map('n', '<Leader>fh', ':Telescope help_tags<CR>', options)
+map('n', '<Leader>gr', ':Lspsaga lsp_finder<CR>', options)
 
 -- quit all
-map("n", "<Leader>qq", ":qa<CR>")
-map("n", "<Leader>w", ":wq<CR>")
+map('n', '<Leader>qq', ':qa<CR>', options)
+map('n', '<Leader>w', ':wq<CR>', options)
 
 -- Move to the next/previous buffer
-map('n', '<leader>[', ':bp<CR>')
-map('n', '<leader>]', ':bn<CR>')
+map('n', '<leader>[', ':bp<CR>', options)
+map('n', '<leader>]', ':bn<CR>', options)
 
 
-map('n', '<C-Down>',    ':move .+1<CR>')
-map('n', '<C-Up>',      ':move .-2<CR>')
+map('n', '<C-Down>',    ':move .+1<CR>', options)
+map('n', '<C-Up>',      ':move .-2<CR>', options)
+
+-- Better window navigation
+map("n", "<C-h>", "<C-w>h", options)
+map("n", "<C-j>", "<C-w>j", options)
+map("n", "<C-k>", "<C-w>k", options)
+map("n", "<C-l>", "<C-w>l", options)

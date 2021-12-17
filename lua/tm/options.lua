@@ -8,8 +8,9 @@ opt.relativenumber = true
 opt.encoding="utf-8"
 opt.showmatch = true                -- show matching 
 opt.ignorecase  = true              -- case insensitive 
-opt.hlsearch = false                 -- highlight search 
+opt.hlsearch = true                 -- highlight search 
 opt.colorcolumn = "90"
+opt.showmode = false
 opt.incsearch = true                -- incremental search
 
 -- tabs
@@ -25,8 +26,11 @@ opt.cindent = true
 opt.syntax = 'on'                   -- syntax highlighting
 opt.termguicolors = true
 opt.clipboard = 'unnamedplus'       -- using system clipboard "
+opt.signcolumn = 'yes'
+opt.guifont = "monospace:h17"
 opt.cursorline = true               -- highlight current cursorline "
 opt.backup = false               -- Don't use swap or backup
+opt.swapfile = false
 opt.ttyfast = true                  -- Speed up scrolling in Vim"
 opt.hidden = true                   -- Do not save when switching buffers
 opt.scrolloff = 8                   -- Number of screen lines to keep above and below the cursor

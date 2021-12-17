@@ -2,6 +2,7 @@ require'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true,
     disable = {},
+    additional_vim_regex_highlighting = true
   },
   incremental_selection = {
     enable = true,
@@ -14,7 +15,7 @@ require'nvim-treesitter.configs'.setup {
   },
   indent = {
     enable = true,
-    disable = {},
+    disable = { "yaml" },
   },
     ensure_installed = "maintained",
     textobjects = {

@@ -1,6 +1,11 @@
 vim.notify = require 'notify'
-require('telescope').setup()
-require("telescope").load_extension("notify")
+
+
+local telescope = require 'telescope'
+local actions = require "telescope.actions"
+
+telescope.setup {}
+telescope.load_extension("notify")
 require('Comment').setup()
 require('lualine').setup { options = { theme  = 'tokyonight' } }
 require("which-key").setup {}
