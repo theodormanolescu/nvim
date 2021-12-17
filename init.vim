@@ -39,11 +39,15 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'https://github.com/onsails/lspkind-nvim.git'
+Plug 'jose-elias-alvarez/null-ls.nvim'
 
 " For luasnip users.
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'rafamadriz/friendly-snippets'
+
+
+Plug 'folke/which-key.nvim'
 
 " statusline
 Plug 'nvim-lualine/lualine.nvim'
@@ -62,6 +66,13 @@ require('tm')
 
 require('Comment').setup()
 require('lualine').setup { options = { theme  = 'tokyonight' } }
+require("which-key").setup {}
+require("null-ls").setup({
+    sources = {
+        require("null-ls").builtins.formatting.black,
+    },
+})
+
 local saga = require('lspsaga')
 saga.init_lsp_saga()
 
