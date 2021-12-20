@@ -1,6 +1,4 @@
-require("tm.plugins")
-require('tm.tree_sitter')
+require('tm.plugins')
 require('tm.lsp')
 require('tm.mappings')
 require('tm.options')
-require('tm.git')

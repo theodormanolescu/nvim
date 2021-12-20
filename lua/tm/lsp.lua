@@ -1,3 +1,22 @@
+local status_ok, _ = pcall(require, 'lspconfig')
+if not status_ok then
+    return
+end
+local status_ok, _ = pcall(require, 'lspkind')
+if not status_ok then
+    return
+end
+local status_ok, _ = pcall(require, 'luasnip')
+if not status_ok then
+    return
+end
+local status_ok, _ = pcall(require, 'cmp')
+if not status_ok then
+    return
+end
+
+
+
 vim.opt.completeopt = "menu,menuone,noselect"
 local nvim_lsp = require('lspconfig')
 local on_attach = function(client, bufnr)

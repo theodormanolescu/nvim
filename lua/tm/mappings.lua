@@ -20,8 +20,9 @@ map('n', '<leader>]', ':bn<CR>', options)
 
 map('n', '<C-Down>',    ':move .+1<CR>', options)
 map('n', '<C-Up>',      ':move .-2<CR>', options)
+map("v", "p", '"_dP', options)
 
--- Better window navigation
+-- Better window navigationgitsigns
 map("n", "<C-h>", "<C-w>h", options)
 map("n", "<C-j>", "<C-w>j", options)
 map("n", "<C-k>", "<C-w>k", options)
