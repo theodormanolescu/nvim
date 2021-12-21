@@ -1,4 +1,3 @@
-vim.cmd[[colorscheme tokyonight]]
 local opt = vim.opt                 -- to set options
 local cmd = vim.api.nvim_command
 HOME_PATH = '/home/' .. vim.fn.expand('$USER')
