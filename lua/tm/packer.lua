@@ -23,14 +23,11 @@ return packer.startup(function(use)
     use 'nvim-lua/plenary.nvim'
     use 'folke/tokyonight.nvim'
     use {'nvim-telescope/telescope.nvim',                   requires = {'nvim-lua/plenary.nvim'}}
-    use {'preservim/nerdtree'}
-    use {'Xuyuanp/nerdtree-git-usein',                     requires = {'preservim/nerdtree'}}
-    use {'ryanoasis/vim-devicons',                          requires = {'preservim/nerdtree'}}
+    use {'kyazdani42/nvim-tree.lua',                        requires = {'kyazdani42/nvim-web-devicons'}}
     use {'lewis6991/gitsigns.nvim',                         requires = {'nvim-lua/plenary.nvim'}}
     use 'neovim/nvim-lspconfig'
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-nvim-lsp'
-    use 'saadparwaiz1/cmp_luasnip'
     use 'hrsh7th/cmp-nvim-lua'
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
@@ -46,6 +43,7 @@ return packer.startup(function(use)
     use 'kyazdani42/nvim-web-devicons'
     use 'tami5/lspsaga.nvim'
     use 'numToStr/Comment.nvim'
+    use 'williamboman/nvim-lsp-installer'
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use {'nvim-treesitter/nvim-treesitter-textobjects',     requires = {'nvim-treesitter/nvim-treesitter'}}
     if PACKER_BOOTSTRAP then

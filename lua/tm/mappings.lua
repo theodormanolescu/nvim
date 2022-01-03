@@ -9,6 +9,8 @@ map('n', '<Leader>fb', ':Telescope buffers<CR>', options)
 map('n', '<Leader>fh', ':Telescope help_tags<CR>', options)
 map('n', '<Leader>gr', ':Lspsaga lsp_finder<CR>', options)
 
+map('n', '<F8>', ':NvimTreeToggle<CR>', options)
+
 -- quit all
 map('n', '<Leader>qq', ':qa<CR>', options)
 map('n', '<Leader>w', ':wq<CR>', options)
