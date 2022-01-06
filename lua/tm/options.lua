@@ -24,6 +24,8 @@ opt.cindent = true
 opt.splitbelow = true                       -- force all horizontal splits to go below current window
 opt.splitright = true                       -- force all vertical splits to go to the right of current windo
 
+
+opt.completeopt = { "menuone", "noselect" }
 opt.syntax = 'on'                   -- syntax highlighting
 opt.termguicolors = true
 opt.clipboard = 'unnamedplus'       -- using system clipboard "

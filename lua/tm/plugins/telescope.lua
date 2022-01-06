@@ -1,15 +1,14 @@
-local status_ok, _ = pcall(require, 'telescope')
+local status_ok, telescope = pcall(require, 'telescope')
 if not status_ok then
     return
 end
 
-local telescope = require 'telescope'
 telescope.setup {}
 
 
-local status_ok, _ = pcall(require, 'notify')
+local status_ok, notify = pcall(require, 'notify')
 if not status_ok then
     return
 end
-vim.notify = require 'notify'
+vim.notify = notify
 telescope.load_extension("notify")
