@@ -15,6 +15,7 @@ map('n', '<Leader>fl', ':lua vim.lsp.buf.formatting()<CR>', options)
 
 
 map('n', '<F8>', ':NvimTreeToggle<CR>', options)
+map('n', '<F5>', ':e!<CR>', options)
 
 -- quit all
 map('n', '<Leader>qq', ':qa<CR>', options)
