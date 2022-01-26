@@ -42,6 +42,7 @@ return packer.startup(function(use)
     use 'saadparwaiz1/cmp_luasnip'
     use 'jose-elias-alvarez/null-ls.nvim'
     use 'rcarriga/nvim-notify'
+    use 'akinsho/toggleterm.nvim'
     use 'folke/which-key.nvim'
     use 'nvim-lualine/lualine.nvim'
     use 'kyazdani42/nvim-web-devicons'
