@@ -1,6 +1,7 @@
 vim.g.mapleader = ' '
 local options = { noremap = true, silent = true }
 local map = vim.api.nvim_set_keymap
+
 -- Telescope
 map('n', '<Leader>ff', ':Telescope find_files<CR>', options)
 map('n', '<Leader>fg', ':Telescope live_grep<CR>', options)
@@ -27,6 +28,7 @@ map('n', '<Leader>h', '<C-W>5<', options)
 map('n', '<Leader>qq', ':qa<CR>', options)
 map('n', '<Leader>w', ':wq<CR>', options)
 
+map('n', '<C-s>', ":lua require('tm.utils').save()<CR>", options)
 -- Move to the next/previous buffer
 map('n', '<leader>[', ':bp<CR>', options)
 map('n', '<leader>]', ':bn<CR>', options)
