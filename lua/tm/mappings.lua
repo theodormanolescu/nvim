@@ -17,6 +17,12 @@ map('n', '<Leader>fl', ':lua vim.lsp.buf.formatting()<CR>', options)
 map('n', '<F8>', ':NvimTreeToggle<CR>', options)
 map('n', '<F5>', ':e!<CR>', options)
 
+-- leader j/k/l/h resize active split by 5
+map('n', '<Leader>j', '<C-W>5-', options)
+map('n', '<Leader>k', '<C-W>5+', options)
+map('n', '<Leader>l', '<C-W>5>', options)
+map('n', '<Leader>h', '<C-W>5<', options)
+
 -- quit all
 map('n', '<Leader>qq', ':qa<CR>', options)
 map('n', '<Leader>w', ':wq<CR>', options)
