@@ -1,8 +1,7 @@
-local status_ok, packer = pcall(require, 'tokyonight')
+local status_ok, packer = pcall(require, 'nightfox')
 if not status_ok then
     return
 end
--- vim.cmd[[colorscheme tokyonight]]
 vim.cmd[[colorscheme nightfox ]]
 
 local status_ok, lualine = pcall(require, 'lualine')

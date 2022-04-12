@@ -36,7 +36,7 @@ end
 
 telescope.setup {
     defaults = {
-        file_ignore_patterns = { "var/cache", ".git", ".idea", ".undo" },
+        file_ignore_patterns = { "var/cache", ".git", ".idea", ".undo", "__pycache__" },
         buffer_previewer_maker = new_maker,
     },
     pickers = {
@@ -56,5 +56,14 @@ local status_ok, notify = pcall(require, 'notify')
 if not status_ok then
     return
 end
+
+
+notify.setup({
+  stages = "fade_in_slide_out",
+  minimum_width = 25,
+  timeout = 1500
+})
+
+
 vim.notify = notify
 telescope.load_extension("notify")
