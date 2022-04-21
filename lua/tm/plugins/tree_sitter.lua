@@ -22,9 +22,10 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
     disable = { "yaml" },
   },
-    ensure_installed = "maintained",
+    ensure_installed = "all",
+    ignore_install = { "phpdoc" },
     textobjects = {
-        select = { 
+        select = {
             enable = true,
             lookahead = true,
             keymaps = {
