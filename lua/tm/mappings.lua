@@ -13,7 +13,6 @@ map('n', '<Leader>e]', ':Lspsaga diagnostic_jump_next<CR>', options)
 map('n', '<Leader>e[', ':Lspsaga diagnostic_jump_prev<CR>', options)
 map('n', '<Leader>ca', ':Lspsaga code_action<CR>', options)
 map('n', '<Leader>fl', ":lua require('tm.utils').format()<CR>", options)
--- map('n', '<Leader>fl', ':lua vim.lsp.buf.formatting()<CR>', options)
 
 
 map('n', '<F8>', ':NvimTreeToggle<CR>', options)

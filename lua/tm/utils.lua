@@ -7,11 +7,11 @@ function M.save()
     })
 end
 
-
 function M.format()
-    vim.lsp.buf.formatting()
+    vim.lsp.buf.format { async = true }
     vim.notify('Formatted', "info", {
         title = title
     })
 end
+
 return M
