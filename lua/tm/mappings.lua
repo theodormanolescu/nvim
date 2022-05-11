@@ -18,6 +18,7 @@ map('n', '<Leader>fl', ":lua require('tm.utils').format()<CR>", options)
 map('n', '<F8>', ':NvimTreeToggle<CR>', options)
 map('n', '<F5>', ':e!<CR>', options)
 
+map("n", "<Esc>", "<cmd> :noh <CR>", options)
 -- leader j/k/l/h resize active split by 5
 map('n', '<Leader>j', '<C-W>5-', options)
 map('n', '<Leader>k', '<C-W>5+', options)

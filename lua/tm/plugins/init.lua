@@ -1,3 +1,4 @@
+require 'tm.plugins.theme'
 require 'tm.plugins.lsp'
 require 'tm.plugins.git'
 require 'tm.plugins.cmp'

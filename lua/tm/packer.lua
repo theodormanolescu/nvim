@@ -21,9 +21,10 @@ return packer.startup(function(use)
     use 'wbthomason/packer.nvim'
     use 'nvim-lua/popup.nvim'
     use 'nvim-lua/plenary.nvim'
-
     use 'EdenEast/nightfox.nvim'
     use 'mfussenegger/nvim-dap'
+    use {'Pocco81/DAPInstall.nvim',                         requires = {"mfussenegger/nvim-dap"}}
+    use { "rcarriga/nvim-dap-ui",                           requires = {"mfussenegger/nvim-dap"}}
     use {'nvim-telescope/telescope.nvim',                   requires = {'nvim-lua/plenary.nvim'}}
     use {'kyazdani42/nvim-tree.lua',                        requires = {'kyazdani42/nvim-web-devicons'}}
     use {'lewis6991/gitsigns.nvim',                         requires = {'nvim-lua/plenary.nvim'}}
