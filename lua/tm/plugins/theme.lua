@@ -6,7 +6,15 @@ end
 nightfox.setup({
     palettes =  {
         nightfox = { comment = "#629755" }
+    },
+    specs = {
+        nightfox = {
+            syntax = {
+                func = "yellow"
+            }
+        }
     }
 })
 
 vim.cmd("colorscheme nightfox")
+
