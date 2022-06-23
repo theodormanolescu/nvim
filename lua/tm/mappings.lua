@@ -16,6 +16,7 @@ map('n', '<Leader>fl', ":lua require('tm.utils').format()<CR>", options)
 
 
 map('n', '<F8>', ':NvimTreeToggle<CR>', options)
+map('n', '<F6>', ':TroubleToggle<CR>', options)
 map('n', '<F5>', ':e!<CR>', options)
 
 map("n", "<Esc>", "<cmd> :noh <CR>", options)

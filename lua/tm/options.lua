@@ -12,6 +12,9 @@ opt.colorcolumn = "90"
 opt.showmode = false
 opt.incsearch = true                -- incremental search
 
+opt.laststatus=3 -- global status line
+opt.winbar="%=%m %f"
+
 -- tabs
 opt.expandtab = true                -- converts tabs to white space
 opt.shiftwidth = 0                  -- width for autoindents
