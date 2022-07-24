@@ -45,9 +45,11 @@ return packer.startup(function(use)
     use 'folke/which-key.nvim'
     use 'nvim-lualine/lualine.nvim'
     use 'kyazdani42/nvim-web-devicons'
+    use 'RRethy/vim-illuminate'
     use 'tami5/lspsaga.nvim'
     use 'numToStr/Comment.nvim'
     use 'williamboman/nvim-lsp-installer'
+    use 'simrat39/rust-tools.nvim'
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use {'nvim-treesitter/nvim-treesitter-textobjects',     requires = {'nvim-treesitter/nvim-treesitter'}}
     if PACKER_BOOTSTRAP then

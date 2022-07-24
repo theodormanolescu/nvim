@@ -42,6 +42,7 @@ M.setup = function()
   })
 end
 
+
 local function lsp_keymaps(bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
   local opts = { noremap = true, silent = true }
@@ -61,6 +62,11 @@ end
 
 M.on_attach = function(client, bufnr)
   lsp_keymaps(bufnr)
+  local status_ok, illuminate = pcall(require, "illuminate")
+  if not status_ok then
+    return
+  end
+  illuminate.on_attach(client)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

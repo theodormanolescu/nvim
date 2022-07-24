@@ -17,6 +17,9 @@ nvim_tree.setup {
     diagnostics = {
         enable = true
     },
+    filters = {
+        exclude = {"vendor", "bin"}
+    },
     renderer = {
         icons = {
             glyphs = {

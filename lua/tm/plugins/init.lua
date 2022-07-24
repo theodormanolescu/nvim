@@ -11,3 +11,6 @@ require 'tm.plugins.tree_sitter'
 require 'tm.plugins.nvim-tree'
 require 'tm.plugins.toggleterm'
 require 'tm.plugins.trouble'
+require 'tm.plugins.dap-ui'
+require 'tm.plugins.illuminate'
+

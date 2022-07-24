@@ -23,7 +23,7 @@ require'nvim-treesitter.configs'.setup {
     disable = { "yaml" },
   },
     ensure_installed = "all",
-    ignore_install = { "phpdoc" },
+    ignore_install = { "phpdoc","swift" },
     textobjects = {
         select = {
             enable = true,
