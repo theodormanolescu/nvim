@@ -13,12 +13,11 @@ local opts = {
             })
         end,
 
-        auto = false,
         inlay_hints = {
             only_current_line = false,
-            auto = false,
+            auto = true,
             only_current_line_autocmd = "CursorHold",
-            show_parameter_hints = false,
+            show_parameter_hints = true,
             show_variable_name = false,
             parameter_hints_prefix = " ",
             other_hints_prefix = " ",

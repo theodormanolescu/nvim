@@ -13,4 +13,6 @@ require 'tm.plugins.toggleterm'
 require 'tm.plugins.trouble'
 require 'tm.plugins.dap-ui'
 require 'tm.plugins.illuminate'
+require 'tm.plugins.fidget'
+require 'tm.plugins.project'
 

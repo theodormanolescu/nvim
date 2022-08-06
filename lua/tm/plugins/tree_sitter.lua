@@ -1,9 +1,9 @@
-local status_ok, packer = pcall(require, 'nvim-treesitter')
+local status_ok, configs = pcall(require, 'nvim-treesitter.configs')
 if not status_ok then
     return
 end
 
-require'nvim-treesitter.configs'.setup {
+configs.setup {
   highlight = {
     enable = true,
     disable = {},

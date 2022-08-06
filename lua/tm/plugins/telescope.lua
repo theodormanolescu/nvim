@@ -43,7 +43,6 @@ telescope.setup {
         find_files = {
           hidden = true,
           no_ignore = true,
-          -- find_command = { "fd", "--type=file", "--exclude=.git" },
         },
         live_grep = {
           only_sort_text = true,
@@ -52,8 +51,8 @@ telescope.setup {
 }
 
 
-local status_ok, notify = pcall(require, 'notify')
-if not status_ok then
+local notify_ok, notify = pcall(require, 'notify')
+if not notify_ok then
     return
 end
 

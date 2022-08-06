@@ -10,15 +10,17 @@ end
 
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
-nvim_tree.setup {
+nvim_tree.setup({
+    sync_root_with_cwd = true,
+    respect_buf_cwd = true,
     disable_netrw = true,
     hijack_netrw = true,
     update_cwd = true,
     diagnostics = {
-        enable = true
+        enable = true,
     },
     filters = {
-        exclude = {"vendor", "bin"}
+        exclude = { "vendor", "bin" },
     },
     renderer = {
         icons = {
@@ -31,8 +33,8 @@ nvim_tree.setup {
                     deleted = "",
                     untracked = "U",
                     ignored = "◌",
-                }
-            }
+                },
+            },
         },
     },
     update_focused_file = {
@@ -44,10 +46,10 @@ nvim_tree.setup {
         mappings = {
             custom_only = false,
             list = {
-                { key = { "l", "<CR>", "o" }, cb = tree_cb "edit" },
-                { key = "h", cb = tree_cb "close_node" },
-                { key = "v", cb = tree_cb "vsplit" },
+                { key = { "l", "<CR>", "o" }, cb = tree_cb("edit") },
+                { key = "h", cb = tree_cb("close_node") },
+                { key = "v", cb = tree_cb("vsplit") },
             },
         },
     },
-}
+})

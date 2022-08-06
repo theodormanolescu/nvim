@@ -34,12 +34,8 @@ return packer.startup(function(use)
     use("hrsh7th/cmp-nvim-lua")
     use("hrsh7th/cmp-buffer")
     use("hrsh7th/cmp-path")
-    use({
-        "j-hui/fidget.nvim",
-        config = function()
-            require("fidget").setup()
-        end,
-    })
+    use("j-hui/fidget.nvim")
+    use("ahmedkhalf/project.nvim")
     use("hrsh7th/cmp-cmdline")
     use("L3MON4D3/LuaSnip")
     use("rafamadriz/friendly-snippets")
@@ -55,7 +51,7 @@ return packer.startup(function(use)
     use("numToStr/Comment.nvim")
     use("williamboman/mason.nvim")
     use("williamboman/mason-lspconfig.nvim")
-    use { "simrat39/rust-tools.nvim", branch = "modularize_and_inlay_rewrite" }
+    use({ "simrat39/rust-tools.nvim", branch = "modularize_and_inlay_rewrite" })
     use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
     use({ "nvim-treesitter/nvim-treesitter-textobjects", requires = { "nvim-treesitter/nvim-treesitter" } })
     if PACKER_BOOTSTRAP then
