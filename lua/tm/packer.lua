@@ -55,7 +55,7 @@ return packer.startup(function(use)
     use("numToStr/Comment.nvim")
     use("williamboman/mason.nvim")
     use("williamboman/mason-lspconfig.nvim")
-    use("simrat39/rust-tools.nvim")
+    use { "simrat39/rust-tools.nvim", branch = "modularize_and_inlay_rewrite" }
     use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
     use({ "nvim-treesitter/nvim-treesitter-textobjects", requires = { "nvim-treesitter/nvim-treesitter" } })
     if PACKER_BOOTSTRAP then
