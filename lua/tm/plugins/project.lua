@@ -1,23 +1,23 @@
 local status_ok, project = pcall(require, "project_nvim")
 if not status_ok then
-    return
+	return
 end
 
 project.setup({
-    active = true,
-    on_config_done = nil,
-    manual_mode = false,
-    detection_methods = { "pattern" },
-    patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json" },
-    show_hidden = false,
-    silent_chdir = true,
-    ignore_lsp = {},
-    datapath = vim.fn.stdpath("data"),
+	active = true,
+	on_config_done = nil,
+	manual_mode = false,
+	detection_methods = { "pattern" },
+	patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json" },
+	show_hidden = false,
+	silent_chdir = true,
+	ignore_lsp = {},
+	datapath = vim.fn.stdpath("data"),
 })
 
-local telescope_ok, telescope = pcall(require, 'telescope')
+local telescope_ok, telescope = pcall(require, "telescope")
 if not telescope_ok then
-    return
+	return
 end
 
-telescope.load_extension('projects')
+telescope.load_extension("projects")

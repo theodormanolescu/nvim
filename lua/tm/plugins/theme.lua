@@ -1,20 +1,19 @@
-local status_ok, nightfox= pcall(require, 'nightfox')
+local status_ok, nightfox = pcall(require, "nightfox")
 if not status_ok then
-    return
+	return
 end
 
 nightfox.setup({
-    palettes =  {
-        nightfox = { comment = "#629755" }
-    },
-    specs = {
-        nightfox = {
-            syntax = {
-                func = "yellow"
-            }
-        }
-    }
+	palettes = {
+		nightfox = { comment = "#629755" },
+	},
+	specs = {
+		nightfox = {
+			syntax = {
+				func = "yellow",
+			},
+		},
+	},
 })
 
 vim.cmd("colorscheme nightfox")
-
