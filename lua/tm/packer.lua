@@ -22,7 +22,6 @@ return packer.startup(function(use)
     use("nvim-lua/popup.nvim")
     use("nvim-lua/plenary.nvim")
     use("EdenEast/nightfox.nvim")
-    use("mfussenegger/nvim-dap")
     use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
     use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" } })
     use({ "kyazdani42/nvim-tree.lua", requires = { "kyazdani42/nvim-web-devicons" } })
@@ -34,7 +33,7 @@ return packer.startup(function(use)
     use("hrsh7th/cmp-nvim-lua")
     use("hrsh7th/cmp-buffer")
     use("hrsh7th/cmp-path")
-    use("j-hui/fidget.nvim")
+    use({"j-hui/fidget.nvim", tag = 'legacy'})
     use("ahmedkhalf/project.nvim")
     use("hrsh7th/cmp-cmdline")
     use("L3MON4D3/LuaSnip")
@@ -42,30 +41,27 @@ return packer.startup(function(use)
     use("saadparwaiz1/cmp_luasnip")
     use("jose-elias-alvarez/null-ls.nvim")
     use("rcarriga/nvim-notify")
-    use("akinsho/toggleterm.nvim")
-    use({ "ellisonleao/glow.nvim" })
+    use("ellisonleao/glow.nvim")
     use("folke/which-key.nvim")
     use("nvim-lualine/lualine.nvim")
     use("kyazdani42/nvim-web-devicons")
     use("RRethy/vim-illuminate")
     use({
-        "glepnir/lspsaga.nvim",
-        opt = true,
-        branch = "main",
-        event = "LspAttach",
+        "nvimdev/lspsaga.nvim",
+        after = 'nvim-lspconfig',
         config = function()
-            require("lspsaga").setup({})
+            require("lspsaga").setup({ lightbulb = { enable = false } })
         end,
         requires = {
             { "nvim-tree/nvim-web-devicons" },
-            --Please make sure you install markdown and markdown_inline parser
             { "nvim-treesitter/nvim-treesitter" }
         }
     })
     use("numToStr/Comment.nvim")
     use("williamboman/mason.nvim")
     use("williamboman/mason-lspconfig.nvim")
-    use({ "simrat39/rust-tools.nvim", branch = "modularize_and_inlay_rewrite" })
+    use("simrat39/rust-tools.nvim")
+    use({ "mfussenegger/nvim-dap", requires = { "nvim-lua/plenary.nvim" } })
     use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
     use({ "nvim-treesitter/nvim-treesitter-textobjects", requires = { "nvim-treesitter/nvim-treesitter" } })
     use({ "nvim-treesitter/nvim-treesitter-context", requires = { "nvim-treesitter/nvim-treesitter" } })
