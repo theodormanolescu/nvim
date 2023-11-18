@@ -1,0 +1,5 @@
+require("tm2.launch")
+require("tm2.mappings")
+require("tm2.options")
+require("tm2.plugins")
+require("tm2.lazy")
